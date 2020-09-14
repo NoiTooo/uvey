@@ -5,24 +5,36 @@ class Theme(models.Model):
     theme = models.CharField(verbose_name='タグ', max_length=30)
 
     def __str__(self):
-        return self.tag
+        return self.theme
 
     class Meta:
-        verbose_name = "タグ"
-        verbose_name_plural = "タグ"
+        verbose_name = "テーマタグ"
+        verbose_name_plural = "テーマタグ"
+
+
+class UploadImg(models.Model):
+    name = models.CharField(verbose_name='名前', max_length=100)
+    img = models.ImageField(verbose_name='イメージファイル', upload_to='article/static/article/img/', help_text='「static/article/img」に格納されます。')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "イメージ"
+        verbose_name_plural = "イメージ"
 
 
 class Article(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=30)
     content = models.TextField(verbose_name='記事内容')
-    thumbnail = models.ImageField(verbose_name='サムネイル用画像/300pxx300px', upload_to='media/upload/thumbnail/')
+    thumbnail = models.ImageField(verbose_name='サムネイル用画像', upload_to='article/media/thumbnail/')
     is_published = models.BooleanField(verbose_name='公開設定')
     created_at = models.DateTimeField(verbose_name='登録日', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日', auto_now=True)
     themes = models.ManyToManyField(Theme, verbose_name='タグ', blank=True)
 
     def __str__(self):
-        return self.tag
+        return self.title
 
     class Meta:
         verbose_name = "記事"

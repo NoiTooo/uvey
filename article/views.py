@@ -8,4 +8,4 @@ User = get_user_model()
 
 class Index(generic.ListView):
     template_name = 'article/index.html'
-    queryset = Article.objects.all()
+    queryset = Article.objects.filter(is_published=True).order_by('-created_at')

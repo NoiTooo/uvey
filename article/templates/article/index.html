@@ -1,10 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+  <title>UVEY[ユービー]｜職場の悩みを解決</title>
+  <meta name="description" content="職場で悩みを抱えてませんか？聞いて話してお悩みを解消！">
+  <link rel="canonical" href="">
+  <!-- SNS -->
+  <meta property="og:url" content="ページのURL">
+  <meta property="og:title" content="ページのタイトル">
+  <meta property="og:type" content="ページのタイプ">
+  <meta property="og:description" content="記事の抜粋">
+  <meta property="og:image" content="画像のURL">
+  <meta name="twitter:card" content="カード種類">
+  <meta name="twitter:site" content="@Twitterユーザー名">
+  <meta property="og:site_name" content="サイト名">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="fb:app_id" content="appIDを入力">
+  <!-- ICON -->
+  <link rel="apple-touch-icon-precomposed" href="">
+  <link rel="icon" href="" sizes="16x16" type="image/png">
+  <!-- STATIC FILE -->
+	<link rel="stylesheet" type='text/css' href="{% static 'article/css/index.css' %}">
+  <!-- indexしない -->
+  <meta name="robots" content="noindex,nofollow">
 </head>
+
 <body>
-hello
+  <div class="header">
+    <div class="brand">UVEY</div>
+  </div>
+
+
+  <div class="wrapper">
+    <div class="contents">
+      <div class="topRecommendedArticles">
+        <div class="topArticleImg">
+          <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 360px; width: 640px;">
+        </div>
+        <div class="topArticleTitle">
+          ZARAの最新アイテム特集♡着るだけで美人に見える旬のアースZARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+        </div>
+        <div class="artilceTagSpace">
+          <p class="articleTag">職場</p>
+        </div>
+
+        <div class="articleList">
+          <div class="articleListImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 200px; width: 300px;">
+          </div>
+          <div class="articleListTitle">
+            ZARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+         </div>
+          <div class="artilceListTagSpace">
+            <p class="articleTag">職場</p>
+          </div>
+        </div>
+        <div class="articleList">
+          <div class="articleListImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 200px; width: 300px;">
+          </div>
+          <div class="articleListTitle">
+            ZARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+          </div>
+          <div class="artilceListTagSpace">
+            <p class="articleTag">職場</p>
+          </div>
+        </div>
+        <div class="articleList">
+          <div class="articleListImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 200px; width: 300px;">
+          </div>
+          <div class="articleListTitle">
+            ZARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+          </div>
+          <div class="artilceListTagSpace">
+            <p class="articleTag">職場</p>
+          </div>
+        </div>
+        <div class="articleList">
+          <div class="articleListImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 200px; width: 300px;">
+          </div>
+          <div class="articleListTitle">
+            ZARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+          </div>
+          <div class="artilceListTagSpace">
+            <p class="articleTag">職場</p>
+          </div>
+        </div>
+      
+        <div class="communicationSpace">
+          <div class="communicationTitle">質問を投稿する</div>
+          <div class="communicationList"></div>
+          <div class="communicationList"></div>
+          <div class="communicationList"></div>
+          <div class="communicationList"></div>
+          <div class="communicationList"></div>
+        </div>      
+
+      </div>
+    </div>
+
+    <div class="sideBar">
+      <div class="adSpace-F">
+        <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_300x250.png"
+            width="300" height="250"></a>
+      </div>
+
+      <div class="category">
+        <div class="categoryListTitle">テーマ一覧</div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}"style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+        <div class="categoryList">
+          <img src="{% static 'article/img/Caesar.jpeg' %}" style="height: 20px; width: 20px; margin-right: 15px;">
+          ファッション
+        </div>
+
+      </div>
+
+      <div class="adSpace-S">
+        <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_300x250.png"
+            width="300" height="250"></a>
+      </div>
+
+      <div class="trendSpace">
+        <div class="trendListTitle">トレンドワード</div>
+        <div class="trendList">#aa</div>
+        <div class="trendList">#複</div>
+        <div class="trendList">#仕事</div>
+        <div class="trendList">#結婚</div>
+        <div class="trendList">#恋愛</div>
+        <div class="trendList">#上司</div>
+        <div class="trendList">#ファッション</div>
+        <div class="trendList">#転職活動</div>
+      </div>
+      
+      <div class="rankingSpace">
+        <div class="rankingTitle">人気記事ランキング</div>
+        
+        <div class="rankingArticle">
+          <div class="rankingArticleImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
+          </div>
+          <div class="rankingArticleContent">
+            ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+            <div class="artilceListTagSpace-ranking">
+              <p class="articleTag-ranking">職場</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rankingArticle">
+          <div class="rankingArticleImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
+          </div>
+          <div class="rankingArticleContent">
+            ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+            <div class="artilceListTagSpace-ranking">
+              <p class="articleTag-ranking">職場</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rankingArticle">
+          <div class="rankingArticleImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
+          </div>
+          <div class="rankingArticleContent">
+            ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+            <div class="artilceListTagSpace-ranking">
+              <p class="articleTag-ranking">職場</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rankingArticle">
+          <div class="rankingArticleImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
+          </div>
+          <div class="rankingArticleContent">
+            ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+            <div class="artilceListTagSpace-ranking">
+              <p class="articleTag-ranking">職場</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rankingArticle">
+          <div class="rankingArticleImg">
+            <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
+          </div>
+          <div class="rankingArticleContent">
+            ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+            <div class="artilceListTagSpace-ranking">
+              <p class="articleTag-ranking">職場</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  <div class="footer">
+    <div class="footerMenu">
+
+    </div>
+    <div class="copyright">Copyright© UVEY, Inc. All Rights Reserved.</div>
+  </div>
+  </div>
+
 </body>
+
 </html>

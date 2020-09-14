@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Theme
+from .models import Article, Theme, UploadImg
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -14,5 +14,7 @@ class ArticleAdmin(admin.ModelAdmin):
             kwargs["queryset"] = Theme.objects.order_by('theme')
         return super().formfield_for_manytomany(db_field, request, **kwargs)
 
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Theme)
+admin.site.register(UploadImg)
