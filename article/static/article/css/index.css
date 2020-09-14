@@ -3,21 +3,26 @@ DESKTOP: 1045px
 SMP: 750px
 */
 
+a{
+	text-decoration: none;
+}
+
 /* DESKTOP */
 @media screen and (min-width: 750px){
 .header{
-	margin: auto;
 	width: 1045px;
 	height: 80px;
+	margin: auto;
+	margin-top: 50px;
 }
 .brand{
+	margin: auto;
 	text-align: center;
-	margin-top: 8px;
 	font-size: 24px;
 }
 .wrapper{
 	margin: auto;
-	margin-top: 10px;
+	margin-top: 50px;
 	width: 1045px;
 }
 .contents{
@@ -25,23 +30,26 @@ SMP: 750px
 	display: inline-block;
 	vertical-align: top;
 }
+/* Top Article */
 .topRecommendedArticles{
 	width: 640px;
 	height: 460px;
 }
 .topArticleImg{
-	width: 640px;
+	width: 540px;
 	height: 360px;
+	margin-left: 50px;
 }
 .topArticleTitle{
-	width: 640px;
+	width: 540px;
 	height: 50px;
-	margin: 10px 0px 0px 0px;
+	margin: 10px 0px 0px 50px;
 }
 .artilceTagSpace{
-	width: 640px;
+	width: 540px;
 	height: 30px;
 	margin-bottom: 5px;
+	margin-left: 50px;
 }
 .articleTag{
 	color: #505050;
@@ -55,7 +63,7 @@ SMP: 750px
 	margin:0;
 }
 .articleTag:before {
-  content: '●';
+  content: '';
   color: black;
   margin-right: 2px;
 }
@@ -84,9 +92,21 @@ SMP: 750px
 .communicationList{
 	height: 100px;
 	width: 640px;
-	border: 1px solid black;
 }
-
+.communicatorName{
+	border-bottom: 1px solid gray;
+}
+.communication{
+	font-size: 14px;
+	height: 40px;
+}
+.communications-answer{
+	font-size: 14px;
+	text-align: right;
+}
+.communications-answer-materials{
+	margin: 0 10px;
+}
 	/* right columns */
 .sideBar{
 	width: 395px;
@@ -164,23 +184,39 @@ SMP: 750px
 	margin:8px 0 0 0;
 }
 .articleTag-ranking:before {
-  content: '●';
+  content: '';
   color: black;
   margin-right: 2px;
 }
 /* fotter */
 .footer{
 	width: 1045px;
-	height: 200px;
-	border: 1px solid black;
+	height: 65px;
 	display: block;
+	border-top: 1px double grey;
+	padding-top: 40px;
+}
+.footerSpace{
+	border: 1px solid black;
+}
+.brand-fotter{
+	width: 150px;
+	height: 60px;
+	float: right;
 }
 .footerMenu{
-	height: 150px;
-	border: 1px solid black;
+	width: 150px;
+	float: right;
+}
+.footerMenuMaterial{
+	display: block;
+	font-size: 12px;
+	text-align: right;
+	padding: 1px;
 }
 .copyright{
 	text-align: center;
+	font-size: 12px;
 }
 /* AD Space*/
 .adSpace-F{
@@ -190,6 +226,9 @@ SMP: 750px
 	text-align: center;
 }
 }
+
+
+
 
 /* SMP */
 @media screen and (max-width: 750px){
