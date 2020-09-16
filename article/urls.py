@@ -14,5 +14,9 @@ admin.site.index_title = 'UVEY'
 
 urlpatterns = [
     path('', views.Index.as_view(), name = 'index'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
-              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('article/<int:pk>', views.Detail.as_view(), name='detail'),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

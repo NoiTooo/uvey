@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+
+<head>
+  {% include 'article/module/head.html' %}
+  <title>UVEY[ユービイ]｜{{ object.title }}</title>
+  <meta name="description" content="{{ object.content }}">
+  <link rel="canonical" href="">
+  <!-- SNS -->
+  <meta property="og:url" content="ページのURL">
+  <meta property="og:title" content="ページのタイトル">
+  <meta property="og:type" content="ページのタイプ">
+  <meta property="og:description" content="記事の抜粋">
+  <meta property="og:image" content="画像のURL">
+  <meta name="twitter:card" content="カード種類">
+  <meta name="twitter:site" content="@Twitterユーザー名">
+  <meta property="og:site_name" content="サイト名">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="fb:app_id" content="appIDを入力">
+  <!-- STATIC FILE-->
+  <link rel="stylesheet" type='text/css' href="{% static 'article/css/detail.css' %}">
+  <!-- indexしない -->
+  <meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+  {% include 'article/module/header.html' %}
+  <div class="wrapper">
+    <div class="contents">
+      {{ object.content | safe }}
+    </div>
+    {% include 'article/module/sidebar.html' %}
+    {% include 'article/module/footer.html' %}
+  </div>
+</body> 
+</html>
