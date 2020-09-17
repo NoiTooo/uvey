@@ -1,0 +1,23 @@
+.serchResult{
+    font-size: 14px;
+    color: #333333;
+}
+/* pagination */
+.pagination{
+    height: 20px;
+    margin: 30px auto;
+}
+.pagination_block{
+    font-size: 14px;
+    padding: 6px;
+    color: black;
+    border: #606560 solid 0.5px;
+}
+
+.pagination_block_current{
+    font-size: 14px;
+    padding: 6px;
+    color: #ffffff;
+    border: #606560 solid 0.5px;
+    background-color: #333333;
+}

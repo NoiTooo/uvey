@@ -1,0 +1,23 @@
+<div class="pagination">
+    <!-- 前へ の部分 -->
+    {% if page_obj.has_previous %}
+    <a class="pagination_block"
+        href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q }}">前へ</a>
+    {% endif %}
+
+    <!-- 数字の部分 -->
+    {% for num in page_obj.paginator.page_range %}
+    {% if num <= page_obj.number|add:5 and num >= page_obj.number|add:-5 %}
+    {% if page_obj.number == num %}
+    <span class="pagination_block_current">{{ num }}</span>
+    {% else %}
+    <a class="pagination_block" href="?page={{ num }}&q={{ request.GET.q }}">{{ num }}</a>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    <!-- 次へ の部分 -->
+    {% if page_obj.has_next %}
+    <a class="pagination_block" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q }}">次へ</a>
+    {% endif %}
+</div>

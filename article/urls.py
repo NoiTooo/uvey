@@ -17,7 +17,8 @@ urlpatterns = [
     path('search/', views.SearchResult.as_view(), name='search_result'),
     path('article/<int:pk>', views.Detail.as_view(), name='detail'),
     path('inquiry/', views.Inquiry.as_view(), name='inquiry'),
-    path('inpuiry/done/', views.InquiryDone.as_view(), name='inquiry_done'),
+    path('inquiry/done/', views.InquiryDone.as_view(), name='inquiry_done'),
+    path('privacy-policy/', views.PrivacyPolicy.as_view(), name='privacy_policy')
 ]
 
 if settings.DEBUG:

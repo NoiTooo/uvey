@@ -13,7 +13,7 @@
 
  /* Form wrapper styling */
 .search-wrapper {
-width: 270px;
+width: 275px;
 margin: 45px auto 50px auto;
 box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
 }
@@ -21,7 +21,7 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
 /* Form text input */
  
 .search-wrapper input {
-width: 200x;
+width: 180x;
 height: 20px;
 padding: 10px 5px;
 float: left;

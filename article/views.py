@@ -1,14 +1,14 @@
+from datetime import datetime
 from functools import reduce
 from operator import and_
-from datetime import datetime
 
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .models import Article
 from .forms import InquiryCreateForm
+from .models import Article
 
 User = get_user_model()
 
@@ -54,6 +54,7 @@ class SearchResult(generic.ListView):
     template_name = 'article/search_result.html'
     queryset = Article.objects.order_by('-created_at').filter(is_published=True)
     context_object_name = 'object_list'
+    paginate_by = 8
 
     def get_queryset(self):
         queryset = Article.objects.order_by('-created_at').filter(is_published=True)
@@ -111,6 +112,19 @@ class SearchResult(generic.ListView):
         ctx['trend_word3'] = trend_words[2]
         ctx['trend_word4'] = trend_words[3]
         ctx['trend_word5'] = trend_words[4]
+        # ページネーション「●件ー●件の表示」
+        page = self.request.GET.get('page')
+        ctx['page'] = page
+        if page is None or int(page) == 1:
+            if count < 8:
+                ctx['pagecountstart'] = 1
+                ctx['pagecountend'] = count
+            else:
+                ctx['pagecountstart'] = 1
+                ctx['pagecountend'] = 8
+        else:
+            ctx['pagecountstart'] = int(page) * 8 - 8
+            ctx['pagecountend'] = int(page) * 8
         return ctx
 
 
@@ -155,3 +169,8 @@ class Inquiry(generic.CreateView):
 class InquiryDone(generic.TemplateView):
     """問い合わせ完了"""
     template_name = 'article/inquiry_done.html'
+
+
+class PrivacyPolicy(generic.TemplateView):
+    """ プライバシーポリシー """
+    template_name = 'article/privacy_policy.html'

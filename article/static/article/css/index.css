@@ -5,10 +5,20 @@ SMP: 750px
 
 a{
 	text-decoration: none;
+	color: black;
+}
+a:after{
+	color: black;
 }
 
 /* DESKTOP */
 @media screen and (min-width: 750px){
+.message{
+	width: 1045px;
+	margin: auto;
+	font-size: 12px;
+	color: #AAAAAA;
+}
 .header{
 	width: 1045px;
 	height: 80px;
@@ -42,7 +52,6 @@ a{
 }
 .topArticleTitle{
 	width: 540px;
-	height: 50px;
 	margin: 10px 0px 0px 50px;
 }
 .artilceTagSpace{
@@ -52,20 +61,28 @@ a{
 	margin-left: 50px;
 }
 .articleTag{
-	color: #505050;
-	font-size: 14px;
-  padding: 4px 8px;
-  display: inline-block;
-  line-height: 1.5;
-  background: #dbebf8;
-  vertical-align: middle;
-	border-radius: 25px 0px 0px 25px;
-	margin:0;
+	position: relative;
+	padding-left: 20px;
+	font-size:14px;
+	color: #000;
+	display: inline-block;
+	margin-top: 0;
+	border-bottom: #FF9966 dotted 1px;
 }
-.articleTag:before {
-  content: '';
-  color: black;
-  margin-right: 2px;
+.articleTag::before,
+.articleTag::after{
+	content: "□";
+	position: absolute;
+	color: #CC6600;
+}
+.articleTag::before{
+	left:0;
+	top:-3px;
+}
+.articleTag::after{
+	left: 5px;
+	top: 3px;
+	color: #FF3333;
 }
 .articleList{
 	display: inline-block;

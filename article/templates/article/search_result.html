@@ -19,18 +19,32 @@
   <meta property="og:site_name" content="サイト名">
   <meta property="og:locale" content="ja_JP">
   <meta property="fb:app_id" content="appIDを入力">
+  <!-- STATIC FILES -->
+  <link rel="stylesheet" type='text/css' href="{% static 'article/css/search_result.css' %}">
   <!-- indexしない -->
   <meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
+  <div class="message">
+    <p>働く女性のための情報メディア</p>
+  </div>
   {% include 'article/module/header.html' %}
 
   <div class="wrapper">
     <div class="contents">
       <div class="topRecommendedArticles">
         <div class="serchResult">
+          {% if query %}
           <p>「{{ query }}」の検索結果：{{ count }}件</p>
+            {% if count != 0 %}
+              <p>{{ pagecountstart }}件－{{ pagecountend }}件を表示</p>
+            {% else %}
+            <p>すべての記事：{{ count }}件</p>
+            {% endif %}
+          {% else %}
+          <p>すべての記事：{{ count }}件</p>
+          {% endif %}
         </div>
         {% for object in object_list %}
         <div class="articleList">
@@ -49,12 +63,13 @@
           </div>
         </div>
         {% endfor %}
+        {% include 'article/module/pagination.html' %}
 
         <div class="communicationSpace">
           <div class="communicationTitle">質問を投稿する</div>
           <div class="communicationList">
             <div class="communicatorName">
-              <img src="{% static 'article/info/salaryman.jpeg'%}" style="height: 30px; width: 30px;">
+              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
               質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
             </div>
             <div class="communication">
@@ -65,7 +80,7 @@
               <a class="communications-answer-materials" href="">回答する</a>
             </div>
             <div class="communicatorName">
-              <img src="{% static 'article/info/salaryman.jpeg'%}" style="height: 30px; width: 30px;">
+              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
               質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
             </div>
             <div class="communication">
@@ -76,7 +91,7 @@
               <a class="communications-answer-materials" href="">回答する</a>
             </div>
             <div class="communicatorName">
-              <img src="{% static 'article/info/salaryman.jpeg'%}" style="height: 30px; width: 30px;">
+              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
               質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
             </div>
             <div class="communication">
@@ -87,7 +102,7 @@
               <a class="communications-answer-materials" href="">回答する</a>
             </div>
             <div class="communicatorName">
-              <img src="{% static 'article/info/salaryman.jpeg'%}" style="height: 30px; width: 30px;">
+              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
               質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
             </div>
             <div class="communication">
@@ -98,7 +113,7 @@
               <a class="communications-answer-materials" href="">回答する</a>
             </div>
             <div class="communicatorName">
-              <img src="{% static 'article/info/salaryman.jpeg'%}" style="height: 30px; width: 30px;">
+              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
               質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
             </div>
             <div class="communication">
