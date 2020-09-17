@@ -74,7 +74,7 @@ a{
 	vertical-align: top;
 	margin-top: 10px;
 }
-.seeMore{
+.seeMoreSpace{
 	margin:15px auto;
 }
 .seeMoreButton{
@@ -85,10 +85,7 @@ a{
 	margin: auto;
 	padding: 10px;
 	color: black;
-}
-.seeMoreButton:hover{
-	background-color: grey;
-	color: honeydew;
+	box-shadow: 2px 2px 4px gray;
 }
 /* Comuunication Space */
 .communicationSpace{
@@ -249,6 +246,9 @@ a{
 	text-align: center;
 }
 .adSpace-S{
+	text-align: center;
+}
+.ad-TH{
 	text-align: center;
 }
 }

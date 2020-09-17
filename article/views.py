@@ -24,7 +24,7 @@ class Index(generic.ListView):
         # topRecommendedArticlesで最新の記事を1つ渡す
         ctx['first'] = Article.objects.filter(is_published=True).order_by('-created_at').first()
         # 2つ目以降の記事をリストで渡す
-        ctx['list'] = Article.objects.filter(is_published=True).order_by('-created_at')[1:7]
+        ctx['list'] = Article.objects.filter(is_published=True).order_by('-created_at')[1:5]
         # 検索されたクエリを取り出す
         ctx['query'] = self.request.GET.get('q', '')
         # 検索されたクエリを集計する
