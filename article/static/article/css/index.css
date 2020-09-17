@@ -74,6 +74,22 @@ a{
 	vertical-align: top;
 	margin-top: 10px;
 }
+.seeMore{
+	margin:15px auto;
+}
+.seeMoreButton{
+	border: 1px solid #505050;
+	width: 400px;
+	height: 30px;
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+	color: black;
+}
+.seeMoreButton:hover{
+	background-color: grey;
+	color: honeydew;
+}
 /* Comuunication Space */
 .communicationSpace{
 	width: 640px;
@@ -113,6 +129,15 @@ a{
 	display: inline-block;
 	vertical-align: top;
 }
+.searchBoxSpace{
+	margin: 10px 0 0px 20px;
+}
+.searchBoxTitle{
+	border-bottom: 1px solid grey;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
 .category{
 	margin: 30px 0 30px 20px;
 }

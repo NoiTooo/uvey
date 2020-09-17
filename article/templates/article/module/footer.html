@@ -2,9 +2,8 @@
 {% load humanize %}
 <div class="footer">
     <div class="footerMenu">
-        <div class="footerMenuMaterial"><a href="">メディアポリシー</a></div>
         <div class="footerMenuMaterial"><a href="">プライバシーポリシー</a></div>
-        <div class="footerMenuMaterial"><a href="">お問合せ</a></div>
+        <div class="footerMenuMaterial"><a href="{% url 'article:inquiry' %}">お問合せ</a></div>
     </div>
     <div class="brand-fotter"><img src="{% static 'article/info/brand.png'%}" style="height: 40px; width: 120px;"></div>
 </div>

@@ -1,14 +1,17 @@
 {% load static %}
 {% load humanize %}
 <div class="sideBar">
-    		<p class="freeword-search-title">フリーワードで検索する</p>
-		<form method="GET" action="{% url 'article:index' %}">
-			<input class="input-text" type="text" name="q" placeholder="キーワードを入力">
-			<button class="freeword-input" type="submit">検索</button>
-		</form>
+    <div class="searchBoxSpace">
+        <div class="searchBoxTitle">記事を検索する</div>
+            <form method="GET" action="{% url 'article:search_result' %}" class="search-wrapper cf">
+                <input type="text" placeholder="Search here..." name="q">
+                <button type="submit">Search</button>
+            </form>
+    </div>
+        
     <div class="trendSpace">
         <div class="trendListTitle">トレンドワード</div>
-        <a href="http://127.0.0.1:8000/?q={{ trend_word1 }}"><div class="trendList">#{{ trend_word1 }}</div></a>
+        <a href="http://127.0.0.1:8000/search/?q={{ trend_word1 }}"><div class="trendList">#{{ trend_word1 }}</div></a>
         <div class="trendList">#{{ trend_word2 }}</div>
         <div class="trendList">#{{ trend_word3 }}</div>
         <div class="trendList">#{{ trend_word4 }}</div>

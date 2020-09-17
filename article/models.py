@@ -14,7 +14,8 @@ class Theme(models.Model):
 
 class UploadImg(models.Model):
     name = models.CharField(verbose_name='名前', max_length=100)
-    img = models.ImageField(verbose_name='イメージファイル', upload_to='article/static/article/img/', help_text='「static/article/img」に格納されます。')
+    img = models.ImageField(verbose_name='イメージファイル', upload_to='article/static/article/img/',
+                            help_text='「static/article/img」に格納されます。')
 
     def __str__(self):
         return self.name
@@ -39,3 +40,23 @@ class Article(models.Model):
     class Meta:
         verbose_name = "記事"
         verbose_name_plural = "記事"
+
+
+INQUIRY_TYPE = (('【Uvey】サービスに関するお問い合わせ', '【Uvey】サービスに関するお問い合わせ'),
+                ('【Uvey】サービスに関するご意見・ご要望', '【Uvey】サービスに関するご意見・ご要望'),
+                ('その他', 'その他'))
+
+
+class Inquiry(models.Model):
+    name = models.CharField(verbose_name='お名前', max_length=30)
+    email = models.EmailField(verbose_name='メールアドレス')
+    inquiry_type = models.CharField(verbose_name='概要する問合せ', max_length=100, choices=INQUIRY_TYPE)
+    inquiry = models.TextField(verbose_name='お問合せ内容')
+    created_at = models.DateTimeField(verbose_name='登録日', auto_now_add=True)
+
+    def __str__(self):
+        return self.inquiry_type
+
+    class Meta:
+        verbose_name = "お問合せ"
+        verbose_name_plural = "お問合せ"

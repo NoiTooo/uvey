@@ -13,8 +13,11 @@ admin.site.index_title = 'UVEY'
 
 
 urlpatterns = [
-    path('', views.Index.as_view(), name = 'index'),
+    path('', views.Index.as_view(), name='index'),
+    path('search/', views.SearchResult.as_view(), name='search_result'),
     path('article/<int:pk>', views.Detail.as_view(), name='detail'),
+    path('inquiry/', views.Inquiry.as_view(), name='inquiry'),
+    path('inpuiry/done/', views.InquiryDone.as_view(), name='inquiry_done'),
 ]
 
 if settings.DEBUG:

@@ -29,37 +29,26 @@
   <div class="wrapper">
     <div class="contents">
       <div class="topRecommendedArticles">
-        <a href="{% url 'article:detail' first.pk %}">
-          <div class="topArticleImg">
-            <img class="articleImg" src="{{ first.thumbnail.url }}" style="height: 360px; width: 540px;">
-          </div>
-          <div class="topArticleTitle">
-            {{ first.title }}
-          </div>
-        </a>
-        {% for theme in first.themes.all %}
-        <div class="artilceTagSpace">
-          <p class="articleTag">{{theme.theme}}</p>
+        <div class="serchResult">
+          <p>「{{ query }}」の検索結果：{{ count }}件</p>
         </div>
-        {% endfor %}
-
-        {% for object in list %}
+        {% for object in object_list %}
         <div class="articleList">
           <a href="{% url 'article:detail' object.pk %}">
-          <div class="articleListImg">
-            <img class="articleImg" src="{{ object.thumbnail.url }}" style="height: 200px; width: 300px;">
-          </div>
-          <div class="articleListTitle">
-            {{ object.title }}
-         </div></a>
+            <div class="articleListImg">
+              <img class="articleImg" src="{{ object.thumbnail.url }}" style="height: 200px; width: 300px;">
+            </div>
+            <div class="articleListTitle">
+              {{ object.title }}
+            </div>
+          </a>
           <div class="artilceListTagSpace">
-          {% for theme in object.themes.all %}
+            {% for theme in object.themes.all %}
             <p class="articleTag">{{ theme.theme }}</p>
-          {% endfor %}
+            {% endfor %}
           </div>
         </div>
         {% endfor %}
-        
 
         <div class="communicationSpace">
           <div class="communicationTitle">質問を投稿する</div>
@@ -120,13 +109,13 @@
               <a class="communications-answer-materials" href="">回答する</a>
             </div>
           </div>
-        </div>      
+        </div>
 
       </div>
     </div>
-  {% include 'article/module/sidebar.html' %}
-  {% include 'article/module/footer.html' %}
-</div>
+    {% include 'article/module/sidebar.html' %}
+    {% include 'article/module/footer.html' %}
+  </div>
 
 </body>
 
