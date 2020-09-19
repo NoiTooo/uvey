@@ -4,11 +4,12 @@ from operator import and_
 
 from django.contrib.auth import get_user_model
 from django.db.models import Q
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import InquiryCreateForm
-from .models import Article
+from .forms import InquiryCreateForm, CommentCreateForm, ReplyCreateForm
+from .models import Article, Post, Comment, Reply
 
 User = get_user_model()
 
@@ -25,6 +26,9 @@ class Index(generic.ListView):
         ctx['first'] = Article.objects.filter(is_published=True).order_by('-created_at').first()
         # 2つ目以降の記事をリストで渡す
         ctx['list'] = Article.objects.filter(is_published=True).order_by('-created_at')[1:5]
+        # Postモデルから値を貰う
+        post = Post.objects.order_by('-created_at')
+        ctx['post'] = post
         # 検索されたクエリを取り出す
         ctx['query'] = self.request.GET.get('q', '')
         # 検索されたクエリを集計する
@@ -84,6 +88,9 @@ class SearchResult(generic.ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        # Postモデルから値を貰う
+        post = Post.objects.order_by('-created_at')
+        ctx['post'] = post
         # 検索されたクエリを取り出す
         ctx['query'] = self.request.GET.get('q', '')
         # 検索結果後、記事数をカウントする
@@ -174,3 +181,60 @@ class InquiryDone(generic.TemplateView):
 class PrivacyPolicy(generic.TemplateView):
     """ プライバシーポリシー """
     template_name = 'article/privacy_policy.html'
+
+
+"""
+お悩み相談機能
+"""
+
+
+class PostListView(generic.ListView):
+    """post/ でアクセス記事一覧."""
+    template_name = 'article/posting/post_list.html'
+    model = Post
+
+
+class PostDetailView(generic.DetailView):
+    """post//detail/post_pk でアクセス。記事詳細."""
+    template_name = 'article/posting/post_detail.html'
+    model = Post
+
+
+class CommentView(generic.CreateView):
+    """/comment/post_pk コメント投稿."""
+    model = Comment
+    template_name = 'article/posting/comment_form.html'
+    form_class = CommentCreateForm
+    success_url = reverse_lazy('article:post_list')
+
+    def form_valid(self, form):
+        post_pk = self.kwargs['pk']
+        post = get_object_or_404(Post, pk=post_pk)
+
+        # 紐づく記事を設定する
+        comment = form.save(commit=False)
+        comment.target = post
+        comment.save()
+
+        # 記事詳細にリダイレクト
+        return redirect('article:post_detail', pk=post_pk)
+
+
+class ReplyView(generic.CreateView):
+    """/reply/comment_pk 返信コメント投稿."""
+    model = Reply
+    template_name = 'article/posting/comment_form.html'
+    form_class = ReplyCreateForm
+    success_url = reverse_lazy('article:post_list')
+
+    def form_valid(self, form):
+        comment_pk = self.kwargs['pk']
+        comment = get_object_or_404(Comment, pk=comment_pk)
+
+        # 紐づくコメントを設定する
+        reply = form.save(commit=False)
+        reply.target = comment
+        reply.save()
+
+        # 記事詳細にリダイレクト
+        return redirect('article:post_detail', pk=comment.target.pk)

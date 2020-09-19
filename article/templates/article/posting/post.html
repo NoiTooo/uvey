@@ -1,0 +1,27 @@
+{% load static %}
+{% load humanize %}
+<div class="communicationSpace">
+    <div class="communicationTitle">お悩み相談<br><span style="color: grey; font-size: 12px; padding: 0; margin: 0;">匿名／会員登録無し</span></div>
+    <div class="communicationList">
+        {% for object in post %}
+        <div class="communicatorName">
+            <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
+            質問者：{{ object.name }}<span style="font-size: 12px;">さん
+        </div>
+        <div class="communication">
+            <p class="postTitle">{{ object.title }}</p>
+            <p class="postText">{{ object.text }}</p>
+        </div>
+        <div class="communications-answer">
+            <a href="{% url 'article:post_detail' object.pk %}">
+                <img src="{% static 'article/info/pen.png'%}" style="height: 30px; width: 30px;">
+                続きを見る</a>
+        </div>
+        {% endfor %}
+        <div class="seeMoreSpace">
+            <a href="{% url 'article:post_list' %}">
+                <div class="seeMoreButton">他のお悩みを見る</div>
+            </a>
+        </div>
+    </div>
+</div>

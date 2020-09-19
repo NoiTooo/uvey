@@ -73,73 +73,8 @@
           <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_468x60.png"
                 width="468" height="60"></a>
         </div>
-                <div class="communicationSpace">
-          <div class="communicationTitle">お悩みを投稿する</div>
-          <div class="communicationList">
-            <div class="communicatorName">
-              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
-              質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
-            </div>
-            <div class="communication">
-              ARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-            </div>
-            <div class="communications-answer">
-              <a class="communications-answer-materials" href="">続きをみる</a>
-              <a class="communications-answer-materials" href="">回答する</a>
-            </div>
-            <div class="communicatorName">
-              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
-              質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
-            </div>
-            <div class="communication">
-              ARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-            </div>
-            <div class="communications-answer">
-              <a class="communications-answer-materials" href="">続きをみる</a>
-              <a class="communications-answer-materials" href="">回答する</a>
-            </div>
-            <div class="communicatorName">
-              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
-              質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
-            </div>
-            <div class="communication">
-              ARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-            </div>
-            <div class="communications-answer">
-              <a class="communications-answer-materials" href="">続きをみる</a>
-              <a class="communications-answer-materials" href="">回答する</a>
-            </div>
-            <div class="communicatorName">
-              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
-              質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
-            </div>
-            <div class="communication">
-              ARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-            </div>
-            <div class="communications-answer">
-              <a class="communications-answer-materials" href="">続きをみる</a>
-              <a class="communications-answer-materials" href="">回答する</a>
-            </div>
-            <div class="communicatorName">
-              <img src="{% static 'article/info/people.png'%}" style="height: 30px; width: 30px;">
-              質問者：●●さん｜<span style="font-size: 12px; color:grey">現在の回答数：●●件</span>
-            </div>
-            <div class="communication">
-              ARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアースARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-            </div>
-            <div class="communications-answer">
-              <a class="communications-answer-materials" href="">続きをみる</a>
-              <a class="communications-answer-materials" href="">回答する</a>
-            </div>
-          <div class="seeMoreSpace">
-            <a href="{% url 'article:search_result' %}">
-              <div class="seeMoreButton">他のお悩みを見る</div>
-            </a>
-          </div>
-          </div>
-
-          </div>
-        </div>      
+          {% include 'article/posting/post.html' %}
+      </div>      
     </div>
   {% include 'article/module/sidebar.html' %}
   {% include 'article/module/footer.html' %}

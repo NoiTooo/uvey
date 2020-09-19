@@ -1,0 +1,22 @@
+.comment{
+    margin: 10px 20px;
+    text-align: right;
+}
+.replySpace{
+    margin-top: 30px;
+}
+.replyer{
+    margin-top: 30px;
+}
+.reply{
+    margin-top: 15px;
+}
+.re-replySpace{
+    margin: 10px 20px;
+    margin-bottom: 50px;
+    text-align: right;
+}
+.re-replay{
+    font-size: 12px;
+    margin-top: 10px;
+}

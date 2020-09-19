@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+<html lang="ja">
+
+<head>
+    {% include 'article/module/head.html' %}
+    <title>UVEY[ユービイ]｜職場の悩みを解決</title>
+    <meta name="description" content="職場で悩みを抱えてませんか？聞いて話してお悩みを解消！">
+    <link rel="canonical" href="">
+    <!-- SNS -->
+    <meta property="og:url" content="ページのURL">
+    <meta property="og:title" content="ページのタイトル">
+    <meta property="og:type" content="ページのタイプ">
+    <meta property="og:description" content="記事の抜粋">
+    <meta property="og:image" content="画像のURL">
+    <meta name="twitter:card" content="カード種類">
+    <meta name="twitter:site" content="@Twitterユーザー名">
+    <meta property="og:site_name" content="サイト名">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="fb:app_id" content="appIDを入力">
+    <!--STATIC FILE-->
+    <link rel="stylesheet" type='text/css' href="{% static 'article/css/inquiry.css' %}">
+    <!-- indexしない -->
+    <meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+    {% include 'article/module/header.html' %}
+    <div class="wrapper">
+        <div class="contents">
+            <div class="inquiryTitle">コメントを送信</div>
+            <div class="inquiry">               
+                <form action="" method="POST">
+                    <p>お名前またはニックネーム</p>
+                    {{ form.name }}
+                    <p>コメント内容</p>
+                    {{ form.text }}
+                    {% csrf_token %}
+                    <br>
+                    <button type="submit">送信</button>
+                </form>
+            </div>
+        </div>
+        {% include 'article/module/footer.html' %}
+    </div>
+</body>
+
+</html>

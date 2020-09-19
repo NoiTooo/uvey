@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Theme, UploadImg, Inquiry
+from .models import Article, Theme, UploadImg, Inquiry, Post, Comment, Reply
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -26,3 +26,6 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Theme)
 admin.site.register(UploadImg)
 admin.site.register(Inquiry, InquiryAdmin)
+admin.site.register(Post)
+admin.site.register(Comment)
+admin.site.register(Reply)

@@ -10,6 +10,9 @@ a{
 a:after{
 	color: black;
 }
+.wf-hannari{
+	 font-family: "Hannari"; 
+}
 
 /* DESKTOP */
 @media screen and (min-width: 750px){
@@ -128,7 +131,25 @@ a:after{
 }
 .communication{
 	font-size: 14px;
-	height: 40px;
+	height: 74px;
+	overflow: hidden;
+	position: relative;
+	background-color: #ffffff;
+}
+.communication:after {
+  content: "...";
+  position: absolute;
+  top: 73px;
+  left: 80px;
+  background-color: #ffffff;
+}
+.postTitle{
+	margin: 0;
+	padding: 5px 0;
+}
+.postText{
+	margin: 0;
+	padding: 0;
 }
 .communications-answer{
 	font-size: 14px;
