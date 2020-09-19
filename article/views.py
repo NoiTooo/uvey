@@ -1,10 +1,12 @@
 from datetime import datetime
 from functools import reduce
 from operator import and_
+from urllib import request
 
 from django.contrib.auth import get_user_model
 from django.db.models import Q
-from django.shortcuts import redirect, get_object_or_404
+from django.http import Http404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -50,6 +52,9 @@ class Index(generic.ListView):
         ctx['trend_word3'] = trend_words[2]
         ctx['trend_word4'] = trend_words[3]
         ctx['trend_word5'] = trend_words[4]
+        # 記事ランキングを作る
+        ranking = Article.objects.filter(is_published=True).order_by('-views')[:5]
+        ctx['ranking'] = ranking
         return ctx
 
 
@@ -132,6 +137,9 @@ class SearchResult(generic.ListView):
         else:
             ctx['pagecountstart'] = int(page) * 8 - 8
             ctx['pagecountend'] = int(page) * 8
+        # 記事ランキングを作る
+        ranking = Article.objects.filter(is_published=True).order_by('-views')[:5]
+        ctx['ranking'] = ranking
         return ctx
 
 
@@ -141,6 +149,7 @@ class Detail(generic.DetailView):
     model = Article
 
     def get_context_data(self, **kwargs):
+        # オーバーライド
         ctx = super().get_context_data(**kwargs)
         # 検索されたクエリを取り出す
         ctx['query'] = self.request.GET.get('q', '')
@@ -163,6 +172,14 @@ class Detail(generic.DetailView):
         ctx['trend_word3'] = trend_words[2]
         ctx['trend_word4'] = trend_words[3]
         ctx['trend_word5'] = trend_words[4]
+        # カウンターをつける
+        pk = self.kwargs['pk']  # PKを取得する
+        count = Article.objects.get(pk=pk)
+        count.views += 1
+        count.save()
+        # 記事ランキングを作る
+        ranking = Article.objects.filter(is_published=True).order_by('-views')[:5]
+        ctx['ranking'] = ranking
         return ctx
 
 
@@ -193,11 +210,63 @@ class PostListView(generic.ListView):
     template_name = 'article/posting/post_list.html'
     model = Post
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        # 検索されたクエリを集計する
+        query_list = {}
+        with open('./article/log/query.csv', encoding='UTF-8')as f:
+            for item in f:
+                columns = item.rstrip().split(',')
+                query = columns[0]
+                if query in query_list:
+                    query_list[query] += 1
+                else:
+                    query_list[query] = 1
+        # 検索されたクエリでトレンドワード作る
+        trend_words = []
+        for k, v in sorted(query_list.items(), key=lambda x: x[1], reverse=True):
+            trend_words.append(str(k))
+        ctx['trend_word1'] = trend_words[0]
+        ctx['trend_word2'] = trend_words[1]
+        ctx['trend_word3'] = trend_words[2]
+        ctx['trend_word4'] = trend_words[3]
+        ctx['trend_word5'] = trend_words[4]
+        # 記事ランキングを作る
+        ranking = Article.objects.filter(is_published=True).order_by('-views')[:5]
+        ctx['ranking'] = ranking
+        return ctx
+
 
 class PostDetailView(generic.DetailView):
     """post//detail/post_pk でアクセス。記事詳細."""
     template_name = 'article/posting/post_detail.html'
     model = Post
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        # 検索されたクエリを集計する
+        query_list = {}
+        with open('./article/log/query.csv', encoding='UTF-8')as f:
+            for item in f:
+                columns = item.rstrip().split(',')
+                query = columns[0]
+                if query in query_list:
+                    query_list[query] += 1
+                else:
+                    query_list[query] = 1
+        # 検索されたクエリでトレンドワード作る
+        trend_words = []
+        for k, v in sorted(query_list.items(), key=lambda x: x[1], reverse=True):
+            trend_words.append(str(k))
+        ctx['trend_word1'] = trend_words[0]
+        ctx['trend_word2'] = trend_words[1]
+        ctx['trend_word3'] = trend_words[2]
+        ctx['trend_word4'] = trend_words[3]
+        ctx['trend_word5'] = trend_words[4]
+        # 記事ランキングを作る
+        ranking = Article.objects.filter(is_published=True).order_by('-views')[:5]
+        ctx['ranking'] = ranking
+        return ctx
 
 
 class CommentView(generic.CreateView):

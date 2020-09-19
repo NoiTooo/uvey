@@ -71,66 +71,21 @@
     <div class="rankingSpace">
         <div class="rankingTitle">人気記事ランキング</div>
 
+        {% for object in ranking %}
         <div class="rankingArticle">
             <div class="rankingArticleImg">
-                <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
+                <img class="articleImg" src="{{ object.thumbnail.url }}" style="height: 80px; width: 120px;">
             </div>
             <div class="rankingArticleContent">
-                ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
+                {{ object.title }}
                 <div class="artilceListTagSpace-ranking">
-                    <p class="articleTag-ranking">職場</p>
+                    {% for theme in object.themes.all %}
+                    <p class="articleTag-ranking">{{ theme.theme }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-
-        <div class="rankingArticle">
-            <div class="rankingArticleImg">
-                <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
-            </div>
-            <div class="rankingArticleContent">
-                ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-                <div class="artilceListTagSpace-ranking">
-                    <p class="articleTag-ranking">職場</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="rankingArticle">
-            <div class="rankingArticleImg">
-                <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
-            </div>
-            <div class="rankingArticleContent">
-                ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-                <div class="artilceListTagSpace-ranking">
-                    <p class="articleTag-ranking">職場</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="rankingArticle">
-            <div class="rankingArticleImg">
-                <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
-            </div>
-            <div class="rankingArticleContent">
-                ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-                <div class="artilceListTagSpace-ranking">
-                    <p class="articleTag-ranking">職場</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="rankingArticle">
-            <div class="rankingArticleImg">
-                <img class="articleImg" src="{%static 'article/img/sample.jpg' %}" style="height: 80px; width: 120px;">
-            </div>
-            <div class="rankingArticleContent">
-                ARAの最新アイテム特集♡着るだけで美人に見える旬のアース
-                <div class="artilceListTagSpace-ranking">
-                    <p class="articleTag-ranking">職場</p>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
     <div class="adSpace-F">
         <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_160x600.png"
