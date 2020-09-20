@@ -7,10 +7,6 @@ from . import views
 
 app_name = 'article'
 
-admin.site.site_title = 'UVEY Tree—Management screen'
-admin.site.site_header = '【UVEY】Management screen'
-admin.site.index_title = 'UVEY'
-
 
 urlpatterns = [
     path('', views.Index.as_view(), name='index'),
