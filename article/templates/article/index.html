@@ -26,6 +26,7 @@
 <body>
   <div class="message">
     <p>働く女性のための情報メディア</p>
+  {% include 'article/module/smp_nav.html' %}
   </div>
   {% include 'article/module/header.html' %}
 
@@ -34,7 +35,7 @@
       <div class="topRecommendedArticles">
         <a href="{% url 'article:detail' first.pk %}">
           <div class="topArticleImg">
-            <img class="articleImg" src="{{ first.thumbnail.url }}" style="height: 360px; width: 540px;">
+            <img class="articleImgtop" src="{{ first.thumbnail.url }}">
           </div>
           <div class="topArticleTitle">
             {{ first.title }}
@@ -50,7 +51,7 @@
         <div class="articleList">
           <a href="{% url 'article:detail' object.pk %}">
           <div class="articleListImg">
-            <img class="articleImg" src="{{ object.thumbnail.url }}" style="height: 200px; width: 300px;">
+            <img class="articleImg" src="{{ object.thumbnail.url }}">
           </div>
           <div class="articleListTitle">
             {{ object.title }}
@@ -73,9 +74,9 @@
           <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_468x60.png"
                 width="468" height="60"></a>
         </div>
-          {% include 'article/posting/post.html' %}
-      </div>      
+      </div>
     </div>
+    
   {% include 'article/module/sidebar.html' %}
   {% include 'article/module/footer.html' %}
 </div>

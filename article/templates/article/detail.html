@@ -19,7 +19,7 @@
   <meta property="og:locale" content="ja_JP">
   <meta property="fb:app_id" content="appIDを入力">
   <!-- STATIC FILE-->
-  <link rel="stylesheet" type='text/css' href="{% static 'article/css/detail.css' %}">
+  <link rel="stylesheet" type='text/css' href="{% static 'article/css/smp/footer_detail.css' %}">
   <!-- indexしない -->
   <meta name="robots" content="noindex,nofollow">
 </head>
@@ -27,6 +27,7 @@
 <body>
   <div class="message">
     <p>働く女性のための情報メディア</p>
+    {% include 'article/module/smp_nav.html' %}
   </div>
   {% include 'article/module/header.html' %}
   <div class="wrapper">

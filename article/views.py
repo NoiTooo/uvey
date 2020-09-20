@@ -10,8 +10,10 @@ from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import InquiryCreateForm, CommentCreateForm, ReplyCreateForm
-from .models import Article, Post, Comment, Reply
+from .forms import InquiryCreateForm
+"""from .forms import CommentCreateForm, ReplyCreateForm"""
+from .models import Article
+"""from .models import Post, Comment, Reply"""
 
 User = get_user_model()
 
@@ -28,9 +30,11 @@ class Index(generic.ListView):
         ctx['first'] = Article.objects.filter(is_published=True).order_by('-created_at').first()
         # 2つ目以降の記事をリストで渡す
         ctx['list'] = Article.objects.filter(is_published=True).order_by('-created_at')[1:5]
+        """
         # Postモデルから値を貰う
         post = Post.objects.order_by('-created_at')
         ctx['post'] = post
+        """
         # 検索されたクエリを取り出す
         ctx['query'] = self.request.GET.get('q', '')
         # 検索されたクエリを集計する
@@ -93,9 +97,11 @@ class SearchResult(generic.ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        """
         # Postモデルから値を貰う
         post = Post.objects.order_by('-created_at')
         ctx['post'] = post
+        """
         # 検索されたクエリを取り出す
         ctx['query'] = self.request.GET.get('q', '')
         # 検索結果後、記事数をカウントする
@@ -204,11 +210,12 @@ class PrivacyPolicy(generic.TemplateView):
 お悩み相談機能
 """
 
-
+"""
 class PostListView(generic.ListView):
-    """post/ でアクセス記事一覧."""
+    # post/ でアクセス記事一覧.
     template_name = 'article/posting/post_list.html'
     model = Post
+    paginate_by = 8
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -238,7 +245,7 @@ class PostListView(generic.ListView):
 
 
 class PostDetailView(generic.DetailView):
-    """post//detail/post_pk でアクセス。記事詳細."""
+    # post//detail/post_pk でアクセス。記事詳細.
     template_name = 'article/posting/post_detail.html'
     model = Post
 
@@ -270,7 +277,7 @@ class PostDetailView(generic.DetailView):
 
 
 class CommentView(generic.CreateView):
-    """/comment/post_pk コメント投稿."""
+    # comment/post_pk コメント投稿.
     model = Comment
     template_name = 'article/posting/comment_form.html'
     form_class = CommentCreateForm
@@ -290,7 +297,7 @@ class CommentView(generic.CreateView):
 
 
 class ReplyView(generic.CreateView):
-    """/reply/comment_pk 返信コメント投稿."""
+    # /reply/comment_pk 返信コメント投稿.
     model = Reply
     template_name = 'article/posting/comment_form.html'
     form_class = ReplyCreateForm
@@ -307,3 +314,5 @@ class ReplyView(generic.CreateView):
 
         # 記事詳細にリダイレクト
         return redirect('article:post_detail', pk=comment.target.pk)
+
+"""

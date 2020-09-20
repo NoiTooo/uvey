@@ -21,6 +21,7 @@
   <meta property="fb:app_id" content="appIDを入力">
   <!-- STATIC FILES -->
   <link rel="stylesheet" type='text/css' href="{% static 'article/css/search_result.css' %}">
+  <link rel="stylesheet" type='text/css' href="{% static 'article/css/smp/footer_search_result.css' %}">
   <!-- indexしない -->
   <meta name="robots" content="noindex,nofollow">
 </head>
@@ -28,6 +29,7 @@
 <body>
   <div class="message">
     <p>働く女性のための情報メディア</p>
+    {% include 'article/module/smp_nav.html' %}
   </div>
   {% include 'article/module/header.html' %}
 
@@ -63,7 +65,6 @@
         </div>
         {% endfor %}
         {% include 'article/module/pagination.html' %}
-        {% include 'article/posting/post.html' %}
       </div>
     </div>
     {% include 'article/module/sidebar.html' %}

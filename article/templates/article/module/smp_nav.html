@@ -1,23 +1,25 @@
 {% load static %}
 {% load humanize %}
-<div class="sideBar">
-    <div class="searchBoxSpace">
-        <div class="searchBoxTitle">記事を検索する</div>
-            <form method="GET" action="{% url 'article:search_result' %}" class="search-wrapper cf">
-                <input type="text" placeholder="Search here..." name="q">
-                <button type="submit">Search</button>
-            </form>
+<!-- ナビメニュー -->
+<nav class="NavMenu">
+    <img class="logo" src="{% static 'article/info/brand.png'%}" style="height: 30px; width: 90px; margin-top: 20px;">
+    <div class="nav_searchBoxSpace">
+    <div class="searchBoxTitle">記事を検索する</div>
+        <form method="GET" action="{% url 'article:search_result' %}" class="search-wrapper cf">
+            <input type="text" placeholder="Search here..." name="q">
+            <button type="submit">Search</button>
+        </form>
     </div>
-        
     <div class="trendSpace">
         <div class="trendListTitle">トレンドワード</div>
-        <a href="http://127.0.0.1:8000/search/?q={{ trend_word1 }}"><div class="trendList">#{{ trend_word1 }}</div></a>
+        <a href="http://127.0.0.1:8000/search/?q={{ trend_word1 }}">
+            <div class="trendList">#{{ trend_word1 }}</div>
+        </a>
         <div class="trendList">#{{ trend_word2 }}</div>
         <div class="trendList">#{{ trend_word3 }}</div>
         <div class="trendList">#{{ trend_word4 }}</div>
         <div class="trendList">#{{ trend_word5 }}</div>
     </div>
-
     <div class="category">
         <div class="categoryListTitle">人気のテーマ一覧</div>
         <div class="categoryList">
@@ -60,40 +62,13 @@
             <img src="{% static 'article/info/career.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
             キャリア
         </div>
-
+    
     </div>
+</nav>
 
-    <div class="adSpace-S">
-        <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_300x250.png"
-                width="300" height="250"></a>
-    </div>
-
-    <div class="rankingSpace">
-        <div class="rankingTitle">人気記事ランキング</div>
-
-        {% for object in ranking %}
-        <div class="rankingArticle">
-            <div class="rankingArticleImg">
-                <img class="articleImg" src="{{ object.thumbnail.url }}" style="height: 80px; width: 120px;">
-            </div>
-            <div class="rankingArticleContent">
-            <a href="{% url 'article:detail' object.pk %}">
-                {{ object.title }}
-            </a>
-                <div class="artilceListTagSpace-ranking">
-                    {% for theme in object.themes.all %}
-                    <p class="articleTag-ranking">{{ theme.theme }}</p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="adSpace-F">
-        <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_160x600.png"
-                width="160" height="600"></a>
-        <a href="https://www.vultr.com/?ref=8604609"><img src="https://www.vultr.com/media/banners/banner_160x600.png"
-                width="160" height="600"></a>
-    </div>
-
+<!-- メニュー -->
+<div class="Toggle">
+    <span class="toggle-span"></span>
+    <span></span>
+    <span></span>
 </div>

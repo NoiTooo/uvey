@@ -33,6 +33,10 @@ a:after{
 	text-align: center;
 	font-size: 24px;
 }
+.logo{
+	height: 80px; 
+	width: 240px
+}
 .wrapper{
 	margin: auto;
 	margin-top: 50px;
@@ -48,9 +52,14 @@ a:after{
 	width: 640px;
 	height: 460px;
 }
-.topArticleImg{
+.toparticleImg{
 	width: 540px;
 	height: 360px;
+	margin-left: 50px;
+}
+.articleImgtop{
+	height: 360px;
+	width: 540px;
 	margin-left: 50px;
 }
 .topArticleTitle{
@@ -93,6 +102,10 @@ a:after{
 	width: 310px;
 	vertical-align: top;
 	margin-top: 10px;
+}
+.articleImg{
+	width: 300px;
+	height: 200px;
 }
 .seeMoreSpace{
 	margin:15px auto;
@@ -255,6 +268,7 @@ a:after{
 	display: block;
 	border-top: 1px double grey;
 	padding-top: 40px;
+	margin: auto;
 	margin-top: 40px;
 }
 .footerSpace{
@@ -289,37 +303,45 @@ a:after{
 .ad-TH{
 	text-align: center;
 }
-}
 
-
-
-
-/* SMP */
-@media screen and (max-width: 750px){
-.header{
-	margin: auto;
-	width: cover;
-	height: 50px;
-	border: 1px solid black;
-}
-.brand{
-	text-align: center;
-	margin-top: 8px;
-	font-size: 24px;
-}
-.wrapper{
-	margin: auto;
-	width: cover;
-	height: 950px;
-	border: 1px solid black;
-}
-.topRecommendedArticles{
-	width: cover;
-	height: 300px;
-	border: 1px solid black;
-}
-.sideBar{
+/*SMP NAVI*/
+/*ナビのスタイル*/
+nav.NavMenu{
 	display: none;
 }
-
+nav.NavMenu ul{
+	display: none;
+}
+nav.NavMenu ul li{
+	display: none;
+}
+nav.NavMenu ul li:last-child{
+	display: none;
+}
+nav.NavMenu ul li a{
+	display: none;
+}
+/*ボタンのスタイル*/
+.Toggle {
+	display: none;
+}
+.Toggle span {
+	display: none;
+}
+.Toggle span:nth-child(1) {
+	display: none;
+}
+.Toggle span:nth-child(2) {
+	display: none;
+}
+.Toggle span:nth-child(3) {
+	display: none;
+}
+.Toggle.active span:nth-child(1) {
+	display: none;
+}
+.Toggle.active span:nth-child(2),
+.Toggle.active span:nth-child(3) {
+	display: none;
+}
 }

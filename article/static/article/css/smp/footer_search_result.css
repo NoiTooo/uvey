@@ -1,0 +1,35 @@
+/* SMP */
+@media screen and (max-width: 749px){
+.footer{
+	height: 65px;
+	border-top: 1px double grey;
+	padding-top: 40px;
+	margin-top: 2200px;
+}
+.footerSpace{
+	border: 1px solid black;
+}
+.brand-fotter{
+	width: 150px;
+	height: 60px;
+	float: right;
+}
+.footerMenu{
+	width: 150px;
+	float: right;
+}
+.footerMenuMaterial{
+	display: block;
+	font-size: 12px;
+	text-align: right;
+	padding: 1px;
+}
+.copyright{
+	text-align: center;
+	font-size: 12px;
+}
+/* AD Space*/
+.adSpace-F, .adSpace-S, .ad-TH{
+    display: none;
+}
+}

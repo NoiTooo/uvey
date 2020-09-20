@@ -68,12 +68,11 @@ class Inquiry(models.Model):
 
 
 """
-お悩み投稿機能
+お悩み投稿機能(未実装)
 """
 
-
+"""
 class Post(models.Model):
-    """お悩み"""
     name = models.CharField(verbose_name='お名前', max_length=10)
     title = models.CharField(verbose_name='タイトル', max_length=45)
     text = models.TextField(verbose_name='投稿内容')
@@ -88,7 +87,6 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    """コメント."""
     name = models.CharField(max_length=255, blank=True)
     text = models.TextField()
     target = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -104,7 +102,6 @@ class Comment(models.Model):
 
 
 class Reply(models.Model):
-    """返信コメント."""
     name = models.CharField(max_length=255, blank=True)
     text = models.TextField()
     target = models.ForeignKey(Comment, on_delete=models.CASCADE)
@@ -117,3 +114,4 @@ class Reply(models.Model):
     class Meta:
         verbose_name = "返信コメント"
         verbose_name_plural = "返信コメント"
+"""

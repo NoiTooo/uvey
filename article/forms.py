@@ -1,5 +1,7 @@
 from django import forms
-from .models import Article, Inquiry, Comment, Reply
+from .models import Inquiry
+
+"""from .models import Comment, Reply"""
 
 
 class InquiryCreateForm(forms.ModelForm):
@@ -10,8 +12,8 @@ class InquiryCreateForm(forms.ModelForm):
         fields = ('name', 'email', 'inquiry_type', 'inquiry')
 
 
+"""
 class CommentCreateForm(forms.ModelForm):
-    """コメント投稿"""
 
     class Meta:
         model = Comment
@@ -19,8 +21,8 @@ class CommentCreateForm(forms.ModelForm):
 
 
 class ReplyCreateForm(forms.ModelForm):
-    """返信投稿"""
 
     class Meta:
         model = Reply
         fields = ('name', 'text')
+"""
