@@ -49,7 +49,11 @@
           {% else %}
           <p>すべての記事：{{ count }}件</p>
           {% endif %}
-          {% include 'article/module/pagination.html' %}
+          {% if count == 0 %}
+            まだこの検索結果に該当する記事はありません。
+          {% else %}
+            {% include 'article/module/pagination.html' %}
+          {% endif %}
         </div>
         {% for object in object_list %}
         <div class="articleList">
@@ -68,7 +72,10 @@
           </div>
         </div>
         {% endfor %}
-        {% include 'article/module/pagination.html' %}
+          {% if count == 0 %}
+          {% else %}
+            {% include 'article/module/pagination.html' %}
+          {% endif %}
       </div>
     </div>
     {% include 'article/module/sidebar.html' %}
