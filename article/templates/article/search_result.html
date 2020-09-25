@@ -5,7 +5,11 @@
 
 <head>
   {% include 'article/module/head.html' %}
-  <title>UVEY[ユービイ]｜職場の悩みを解決</title>
+  {% if query%}
+  <title>{{ query }}の検索結果｜UVEY[ユービイ]</title>
+  {% else %}
+  <title>UVEY[ユービイ]｜働く女性のための情報メディア</title>
+  {% endif %}
   <meta name="description" content="職場で悩みを抱えてませんか？聞いて話してお悩みを解消！">
   <link rel="canonical" href="">
   <!-- SNS -->
