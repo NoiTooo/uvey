@@ -145,3 +145,4 @@ project/settings.py
 uvey/static/
 uvey/media/
 .idea/
+log/query.csv
