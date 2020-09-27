@@ -10,8 +10,18 @@
   {% else %}
   <title>UVEY[ユービイ]｜働く女性のための情報メディア</title>
   {% endif %}
-  <meta name="description" content="職場で悩みを抱えてませんか？聞いて話してお悩みを解消！">
-  <link rel="canonical" href="">
+  {% if query%}
+  <meta name="description" content="
+  「｛｛ query ｝｝」の検索結果ー 「人間関係」・「ハラスメント」・「恋愛」など職場で悩みを抱えるあなたにおくる情報メディア／知っていたら役立つ。
+    周りはこんなこと考えてるのかな？職場で活躍する女性に参考になる情報をお届けします。
+  ">
+  {% else %}
+  <meta name="description" content="
+  記事一覧ー 「人間関係」・「ハラスメント」・「恋愛」など職場で悩みを抱えるあなたにおくる情報メディア／知っていたら役立つ。
+    周りはこんなこと考えてるのかな？職場で活躍する女性に参考になる情報をお届けします。
+  ">
+  {% endif %}
+  <link rel="canonical" href="https://uvey.jp/search/">
   <!-- SNS -->
   <meta property="og:url" content="ページのURL">
   <meta property="og:title" content="ページのタイトル">
@@ -26,8 +36,6 @@
   <!-- STATIC FILES -->
   <link rel="stylesheet" type='text/css' href="{% static 'article/css/search_result.css' %}">
   <link rel="stylesheet" type='text/css' href="{% static 'article/css/smp/footer_search_result.css' %}">
-  <!-- indexしない -->
-  <meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
