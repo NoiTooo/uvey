@@ -294,3 +294,28 @@ nav.NavMenu{
 	text-align: left;
 }
 }
+
+
+/* SMALL DISPLAY */
+@media screen and (max-width: 329px){
+.category{
+	margin: 30px 0 30px 20px;
+}
+.categoryListTitle{
+	color: black;
+	font-size: 14px;
+	border-bottom: 1px solid grey;
+	font-weight: bold;
+	margin: 10px;
+	padding-bottom: 10px;
+}
+.categoryList{
+	display: inline-block;
+	border-bottom: 1px solid grey;
+	width: 130px;
+	height: 30px;
+	margin: 10px 0;
+	font-size: 13px;
+	text-align: left;
+}
+}

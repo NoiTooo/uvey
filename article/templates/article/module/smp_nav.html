@@ -12,57 +12,64 @@
     </div>
     <div class="trendSpace">
         <div class="trendListTitle">トレンドワード</div>
-        <a href="http://127.0.0.1:8000/search/?q={{ trend_word1 }}">
+        <a href="{% url 'article:search_result'%}?q={{ trend_word1 }}">
             <div class="trendList">#{{ trend_word1 }}</div>
         </a>
-        <div class="trendList">#{{ trend_word2 }}</div>
-        <div class="trendList">#{{ trend_word3 }}</div>
-        <div class="trendList">#{{ trend_word4 }}</div>
-        <div class="trendList">#{{ trend_word5 }}</div>
+        <a href="{% url 'article:search_result'%}?q={{ trend_word2 }}">
+            <div class="trendList">#{{ trend_word2 }}</div>
+        </a>
+        <a href="{% url 'article:search_result'%}?q={{ trend_word3 }}">
+            <div class="trendList">#{{ trend_word3 }}</div>
+        </a>
+        <a href="{% url 'article:search_result'%}?q={{ trend_word4 }}">
+            <div class="trendList">#{{ trend_word4 }}</div>
+        </a>
+        <a href="{% url 'article:search_result'%}?q={{ trend_word5 }}">
+            <div class="trendList">#{{ trend_word5 }}</div>
+        </a>
     </div>
     <div class="category">
         <div class="categoryListTitle">人気のテーマ一覧</div>
         <div class="categoryList">
             <img src="{% static 'article/info/communication.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            人間関係
+            <a href="{% url 'article:search_result'%}?q=人間関係">人間関係</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/money.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            お金
+            <a href="{% url 'article:search_result'%}?q=お金">お金</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/celebration.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            結婚
+            <a href="{% url 'article:search_result'%}?q=結婚">結婚</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/private.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            プライベート
+            <a href="{% url 'article:search_result'%}?q=プライベート">プライベート</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/harassment.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            ハラスメント
+            <a href="{% url 'article:search_result'%}?q=ハラスメント">ハラスメント</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/love.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            恋愛
+            <a href="{% url 'article:search_result'%}?q=恋愛">恋愛</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/work.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            スキル
+            <a href="{% url 'article:search_result'%}?q=スキル">スキル</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/fashion.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            ファッション
+            <a href="{% url 'article:search_result'%}?q=ファッション">ファッション</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/health.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            ヘルス
+            <a href="{% url 'article:search_result'%}?q=ヘルス">ヘルス</a>
         </div>
         <div class="categoryList">
             <img src="{% static 'article/info/career.png' %}" style="height: 20px; width: 20px; margin-right: 15px;">
-            キャリア
-        </div>
-    
+            <a href="{% url 'article:search_result'%}?q=キャリア">キャリア</a>
+        </div>    
     </div>
 </nav>
 

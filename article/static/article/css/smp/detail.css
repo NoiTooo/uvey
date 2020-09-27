@@ -1,0 +1,15 @@
+@media screen and (max-width: 749px){
+h1{
+   font-size: 18px
+}
+p{
+  word-break: break-all
+}
+.detailImg{
+  width: 300px;
+  text-align: center;
+  margin: 0;
+}
+
+
+}
