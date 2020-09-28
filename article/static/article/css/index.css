@@ -10,10 +10,6 @@ a{
 a:after{
 	color: black;
 }
-.wf-hannari{
-	 font-family: "Hannari"; 
-}
-
 /* DESKTOP */
 @media screen and (min-width: 750px){
 .message{
