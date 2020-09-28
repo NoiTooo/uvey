@@ -32,7 +32,9 @@
   {% include 'article/module/header.html' %}
   <div class="wrapper">
     <div class="contents">
+      <h1>{{ object.title }}</h1>
       {{ object.content | safe }}
+      <div style="text-align: right; font-size: 14px; margin:50px 0 0 0; padding: 0; color: grey;">最終更新日：{{ object.updated_at|date:"Y-m-d" }}</div>
     </div>
     {% include 'article/module/sidebar.html' %}
     {% include 'article/module/footer.html' %}
