@@ -47,6 +47,12 @@
 
   <div class="wrapper">
     <div class="contents">
+        <!-- breadcrumbs -->
+      <div class="breadcrumbs" style="margin-bottom: 20px;">
+        <img src="{% static 'article/info/home.png' %}" style="width: 20px;">
+        <a style="font-size: 13px; color: grey;" href="{% url 'article:index'%}"> Home ></a>
+        <a style="font-size: 13px; color: grey;" href="{% url 'article:search_result' %}"> 検索結果</a>
+      </div>
       <div class="topRecommendedArticles">
         <div class="serchResult">
           {% if query %}

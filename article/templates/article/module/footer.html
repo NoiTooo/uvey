@@ -5,6 +5,8 @@
         <div class="footerMenuMaterial"><a href="{% url 'article:privacy_policy' %}">プライバシーポリシー</a></div>
         <div class="footerMenuMaterial"><a href="{% url 'article:inquiry' %}">お問合せ</a></div>
     </div>
-    <div class="brand-fotter"><img src="{% static 'article/info/brand.png'%}" style="height: 40px; width: 120px;"></div>
+    <div class="brand-fotter">
+        <a href="{% url 'article:index' %}"><img src="{% static 'article/info/brand.png'%}" style="height: 40px; width: 120px;"></a>
+    </div>
 </div>
 <div class="copyright">Copyright© Uvey All Rights Reserved.</div>

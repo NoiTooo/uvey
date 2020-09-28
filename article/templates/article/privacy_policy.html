@@ -33,6 +33,12 @@
     </div>
     {% include 'article/module/header.html' %}
     <div class="wrapper">
+      <!-- breadcrumbs -->
+      <div class="breadcrumbs" style="margin-bottom: 40px;">
+        <img src="{% static 'article/info/home.png' %}" style="width: 20px;">
+        <a style="font-size: 12px; color: grey;" href="{% url 'article:index'%}"> Home ></a>
+        <a style="font-size: 12px; color: grey;" href="{% url 'article:privacy_policy' %}"> プライバシーポリシー</a>
+      </div>
         <p>
         Uvey（以下「運営者」という）は、
         運営者の提供するサービスの利用者（以下「ユーザー」という）に関する個人情報を含んだ情報（以下「ユーザー情報」という）の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」という）を定めます。

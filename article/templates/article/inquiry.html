@@ -34,6 +34,12 @@
 	{% include 'article/module/header.html' %}
 	<div class="wrapper">
 		<div class="contents">
+      <!-- breadcrumbs -->
+      <div class="breadcrumbs" style="margin-bottom: 40px;">
+        <img src="{% static 'article/info/home.png' %}" style="width: 20px;">
+        <a style="font-size: 13px; color: grey;" href="{% url 'article:index'%}"> Home ></a>
+        <a style="font-size: 13px; color: grey;" href="{% url 'article:inquiry' %}"> お問合せ</a>
+      </div>
 			<div class="inquiryTitle">リクエストを送信</div>
 				<div class="inquiry">
 					<form action="" method="POST">{% csrf_token %}
