@@ -38,7 +38,6 @@
     <a style="font-size: 13px; color: grey;" href="{% url 'article:index'%}"> Home ></a>
     <a style="font-size: 13px; color: grey;" href="{% url 'article:search_result' %}"> 検索結果 ></a>
   </div>
-
       <h1>{{ object.title }}</h1>
       {{ object.content | safe }}
       <div style="text-align: right; font-size: 14px; margin:50px 0 0 0; padding: 0; color: grey;">最終更新日：{{ object.updated_at|date:"Y-m-d" }}</div>
