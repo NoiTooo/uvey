@@ -1,6 +1,5 @@
 User-agent: *
 
-Disallow: /register
 Disallow: /inquiry.html
 Disallow: /inquiry_done.html
 Disallow: /privacy_policy.html
