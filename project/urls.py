@@ -5,14 +5,16 @@ from django.urls import path, include
 
 from .sitemaps import (
     ArticleSitemap,
-    StaticViewSitemap,
+    IndexSitemap,
     SearchResultSitemap,
+    StaticViewSitemap,
 )
 
 sitemaps = {
-    'Subsidy': ArticleSitemap,
-    'static': StaticViewSitemap,
+    'article': ArticleSitemap,
+    'index': IndexSitemap,
     'search': SearchResultSitemap,
+    'static': StaticViewSitemap,
 }
 
 admin.site.site_title = 'UVEY Tree—Management screen'

@@ -21,19 +21,16 @@ class ArticleSitemap(Sitemap):
         return obj.updated_at
 
 
-class StaticViewSitemap(Sitemap):
+class IndexSitemap(Sitemap):
     """
-    静的ページのサイトマップ
+    Index(TOP)ページのサイトマップ
     """
-    changefreq = "weekly"
-    priority = 0.5
+    changefreq = "daily"
+    priority = 0.8
 
     def items(self):
         return [
             'article:index',
-            'article:search_result',
-            'article:inquiry',
-            'article:privacy_policy',
         ]
 
     def location(self, item):
@@ -50,6 +47,24 @@ class SearchResultSitemap(Sitemap):
     def items(self):
         return [
             'article:search_result',
+        ]
+
+    def location(self, item):
+        return reverse(item)
+
+
+class StaticViewSitemap(Sitemap):
+    """
+    静的ページのサイトマップ
+    """
+    changefreq = "monthly"
+    priority = 0.3
+
+    def items(self):
+        return [
+            'article:search_result',
+            'article:inquiry',
+            'article:privacy_policy',
         ]
 
     def location(self, item):
